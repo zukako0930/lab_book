@@ -1,0 +1,9 @@
+{
+	"name": "adfkoishizu",
+	"location": "japaneast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d01d1c78-7270-4096-9e91-e172a2e6ebd5",
+		"tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+	}
+}

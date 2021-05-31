@@ -1,0 +1,102 @@
+{
+	"name": "SourceDataset_hfz",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Restaurant customer data.csv",
+				"container": "democontainer"
+			},
+			"columnDelimiter": ",",
+			"rowDelimiter": "\n",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "userID",
+				"type": "String"
+			},
+			{
+				"name": "latitude",
+				"type": "String"
+			},
+			{
+				"name": "longitude",
+				"type": "String"
+			},
+			{
+				"name": "smoker",
+				"type": "String"
+			},
+			{
+				"name": "drink_level",
+				"type": "String"
+			},
+			{
+				"name": "dress_preference",
+				"type": "String"
+			},
+			{
+				"name": "ambience",
+				"type": "String"
+			},
+			{
+				"name": "transport",
+				"type": "String"
+			},
+			{
+				"name": "marital_status",
+				"type": "String"
+			},
+			{
+				"name": "hijos",
+				"type": "String"
+			},
+			{
+				"name": "birth_year",
+				"type": "String"
+			},
+			{
+				"name": "interest",
+				"type": "String"
+			},
+			{
+				"name": "personality",
+				"type": "String"
+			},
+			{
+				"name": "religion",
+				"type": "String"
+			},
+			{
+				"name": "activity",
+				"type": "String"
+			},
+			{
+				"name": "color",
+				"type": "String"
+			},
+			{
+				"name": "weight",
+				"type": "String"
+			},
+			{
+				"name": "budget",
+				"type": "String"
+			},
+			{
+				"name": "height",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
