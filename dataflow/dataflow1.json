@@ -12,13 +12,24 @@
 					"name": "source1"
 				}
 			],
-			"sinks": [],
-			"transformations": [
+			"sinks": [
 				{
-					"name": "filtereddata"
+					"dataset": {
+						"referenceName": "sink_restaurant_smoker",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
 				}
 			],
-			"script": "source(output(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string,\n\t\tColumn_3 as string,\n\t\tColumn_4 as string,\n\t\tColumn_5 as string,\n\t\tColumn_6 as string,\n\t\tColumn_7 as string,\n\t\tColumn_8 as string,\n\t\tColumn_9 as string,\n\t\tColumn_10 as string,\n\t\tColumn_11 as string,\n\t\tColumn_12 as string,\n\t\tColumn_13 as string,\n\t\tColumn_14 as string,\n\t\tColumn_15 as string,\n\t\tColumn_16 as string,\n\t\tColumn_17 as string,\n\t\tColumn_18 as string,\n\t\tColumn_19 as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: true,\n\tignoreNoFilesFound: false) ~> source1\nsource1 filter(ERROR_FUNCTION('')) ~> filtereddata"
+			"transformations": [
+				{
+					"name": "smokerfilter"
+				},
+				{
+					"name": "sortbylatitude"
+				}
+			],
+			"script": "source(output(\n\t\tuserID as string,\n\t\tlatitude as string,\n\t\tlongitude as string,\n\t\tsmoker as string,\n\t\tdrink_level as string,\n\t\tdress_preference as string,\n\t\tambience as string,\n\t\ttransport as string,\n\t\tmarital_status as string,\n\t\thijos as string,\n\t\tbirth_year as string,\n\t\tinterest as string,\n\t\tpersonality as string,\n\t\treligion as string,\n\t\tactivity as string,\n\t\tcolor as string,\n\t\tweight as string,\n\t\tbudget as string,\n\t\theight as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: true,\n\tignoreNoFilesFound: false) ~> source1\nsource1 filter(equals(smoker, \"false\")) ~> smokerfilter\nsmokerfilter sort(asc(latitude, true)) ~> sortbylatitude\nsortbylatitude sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tumask: 0022,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
 		}
 	}
 }
